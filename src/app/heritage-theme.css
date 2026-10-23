@@ -1,0 +1,791 @@
+/* Light heritage palette: Sage page, Peacock text.
+   Sage #e4d8ab · Pistachio #B89D47 · Spruce #355E58 · Peacock #053229 */
+:root {
+  --sage: #e4d8ab;
+  --pistachio: #b89d47;
+  --spruce: #355e58;
+  --peacock: #053229;
+
+  --ivory: var(--sage);
+  --paper: var(--sage);
+  --ink: var(--peacock);
+  --muted: #1f4a43; /* Spruce, deepened so small text stays readable on Sage */
+  --forest: var(--peacock);
+  --wine: var(--spruce);
+  --gold: var(--pistachio);
+  --line: #05322933;
+  --panel: #ffffff2e; /* soft lift above the Sage page */
+}
+
+html {
+  background: var(--sage);
+  scroll-padding-top: 120px;
+}
+body {
+  background: var(--sage);
+  color: var(--peacock);
+  isolation: isolate;
+}
+body::before {
+  content: none;
+}
+::selection {
+  background: var(--peacock);
+  color: var(--sage);
+}
+.skip-link {
+  background: var(--peacock);
+  color: var(--sage);
+}
+
+/* Keep the supplied logo on the centre axis with simple text navigation. */
+.header-shell {
+  position: relative;
+  background: transparent;
+  color: var(--peacock);
+  border: 0;
+  box-shadow: none;
+}
+.home-header,
+.home-header.is-scrolled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  color: #f7f4eb; /* sits on the hero photograph */
+  border: 0;
+  box-shadow: none;
+}
+.home-header.is-scrolled {
+  position: fixed;
+  background: var(--sage);
+  color: var(--peacock);
+  border-bottom: 1px solid var(--line);
+}
+.header-shell.menu-is-open {
+  position: fixed;
+}
+.header {
+  height: 92px;
+  padding-inline: 6%;
+}
+.announcement {
+  font-size: 7px;
+  padding-block: 5px;
+  color: var(--spruce);
+}
+.header > .brand {
+  width: 200px;
+  display: block;
+}
+.brand-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0); /* dark logo on the light page */
+}
+.home-header:not(.is-scrolled):not(.menu-is-open) .brand-image {
+  filter: brightness(0) invert(94%) sepia(15%) saturate(400%); /* light logo over hero */
+}
+.header > .brand, .footer .brand { mix-blend-mode: normal; }
+.header { background: transparent; border: 0; box-shadow: none; }
+.footer .brand {
+  width: 250px;
+}
+.brand .brand-mark {
+  width: 25px;
+  height: 25px;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+.brand-tagline {
+  margin-top: 8px;
+}
+.nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr);
+  gap: 0;
+}
+.nav-left {
+  grid-column: 1;
+  justify-content: flex-start;
+}
+.nav-right {
+  grid-column: 3;
+  justify-content: flex-end;
+}
+.nav-group {
+  gap: 25px;
+}
+.nav-group > a:not(.button) {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+.nav-cta {
+  color: inherit;
+  border-color: #05322966;
+  background: transparent;
+  font-size: 9px;
+}
+.nav-cta:hover {
+  color: var(--sage);
+  background: var(--peacock);
+}
+
+/* A quieter headline leaves more room for the textile campaign. */
+.hero {
+  min-height: max(720px, 100svh);
+  color: #f7f4eb; /* hero stays light-on-photo for legibility */
+}
+.hero-copy {
+  padding: 170px 6.5% 120px;
+}
+.hero h1 {
+  font-size: clamp(54px, 5.1vw, 80px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+  max-width: 610px;
+}
+.hero h1 > span {
+  max-width: 610px;
+}
+.hero h1 em {
+  line-height: 1.16;
+}
+.hero-poetry {
+  font-size: 18px;
+  max-width: 450px;
+}
+.hero-copy > p {
+  max-width: 390px;
+  font-size: 12px;
+}
+.hero-actions > .button,
+.button,
+.button.light {
+  background: var(--peacock);
+  border-color: var(--peacock);
+  color: var(--sage);
+}
+.button:hover,
+.button.light:hover,
+.hero-actions > .button:hover {
+  background: var(--spruce);
+  border-color: var(--spruce);
+  color: #f7f4eb;
+}
+.hero-actions > .button {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: var(--peacock);
+}
+.hero-actions > .button:hover {
+  background: #f0e8c8;
+  border-color: #f0e8c8;
+  color: var(--peacock);
+}
+.button.nav-cta {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 10px;
+}
+.button.nav-cta:hover {
+  color: var(--spruce);
+  background: transparent;
+}
+.nav-group > a::after {
+  display: none;
+}
+.header-shell .nav {
+  border: 0;
+}
+.text-link,
+.collection-info > span {
+  color: var(--spruce);
+}
+.text-link:hover {
+  color: var(--peacock);
+  border-color: var(--peacock);
+}
+.minimum-note,
+.image-disclaimer,
+.collection-link {
+  color: var(--muted);
+}
+.values-strip {
+  background: #05322912;
+  color: var(--peacock);
+  border-color: var(--line);
+}
+.manifesto,
+.featured,
+.why-section,
+.faq-section,
+.catalogue-section,
+.standalone-faq,
+.about-section {
+  background: transparent;
+}
+.manifesto .eyebrow,
+.eyebrow {
+  color: var(--spruce);
+}
+.manifesto-signature {
+  color: var(--spruce);
+}
+.ordering {
+  background: var(--panel);
+  border-color: var(--line);
+}
+.step-top {
+  border-color: #05322940;
+}
+.step-top > span:first-child {
+  color: var(--spruce);
+}
+.story-section {
+  background: transparent;
+  color: var(--peacock);
+  border: 0;
+}
+.story-backdrop {
+  display: block;
+  position: relative;
+  isolation: isolate;
+  min-height: 700px;
+  margin-inline: 6%;
+  margin-bottom: 90px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--sage);
+}
+.story-backdrop .story-image {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  height: auto;
+  z-index: -1;
+}
+.story-backdrop .story-image > img {
+  object-position: left center;
+}
+/* Sage fades in over the photo so Peacock text reads on the right. */
+.story-backdrop .story-image::after {
+  background:
+    linear-gradient(0deg, #0532294d, transparent 22%),
+    linear-gradient(90deg, #e4d8ab10, #e4d8abcc 42%, #e4d8abf2 75%);
+}
+.story-backdrop .story-copy {
+  width: 53%;
+  max-width: 800px;
+  margin-left: auto;
+  padding: 90px 7% 90px 3%;
+}
+.story-copy .eyebrow {
+  color: var(--spruce);
+}
+.story-copy em {
+  color: var(--spruce);
+}
+.story-copy p {
+  color: var(--peacock);
+}
+.story-copy > .text-link {
+  color: var(--spruce);
+  border-color: var(--spruce);
+}
+.story-backdrop .story-image-caption {
+  left: 28px;
+  bottom: 20px;
+  color: #f7f4eb;
+  text-shadow: 0 1px 6px #053229;
+}
+@media (min-width: 1600px) {
+  .story-backdrop {
+    margin-inline: 8%;
+  }
+}
+.story-seal {
+  background: var(--peacock);
+  color: var(--sage);
+  border-color: var(--sage);
+  outline-color: var(--peacock);
+}
+.collection-image {
+  border: 1px solid #05322940;
+}
+.featured-grid .collection-image {
+  border-radius: 180px 180px 3px 3px;
+}
+.featured .collection-card:nth-child(n) {
+  margin: 0;
+}
+.homepage .featured {
+  padding-top: 75px;
+}
+.featured-grid .collection-number {
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.collection-info h3 {
+  color: var(--peacock);
+}
+.collection-number {
+  color: #f7f4eb; /* sits on the product photograph */
+  text-shadow: 0 1px 8px #05322999;
+}
+.illustration-label {
+  background: #e4d8abe6;
+  color: var(--peacock);
+  border: 1px solid #05322944;
+}
+.faq-number {
+  color: #000;
+}
+.faq-list details[open] > p {
+  background: #ece2b8; /* Sage panel for the opened answer, a touch darker */
+  color: var(--peacock);
+  padding-block: 20px;
+  margin: 0 0 22px;
+  max-width: none;
+  border-radius: 16px;
+}
+.faq-plus::before,
+.faq-plus::after {
+  background: var(--spruce);
+}
+.final-cta {
+  background: var(--panel);
+  color: var(--peacock);
+  border-block: 1px solid var(--line);
+}
+.final-cta::before,
+.final-cta::after {
+  content: none;
+}
+.final-cta .eyebrow {
+  color: var(--spruce);
+}
+.final-cta em {
+  color: var(--spruce);
+}
+.final-cta p,
+.final-cta small {
+  color: var(--peacock);
+}
+
+/* The same Sage surface continues across catalogue, story, FAQ and contact pages. */
+.page-intro {
+  background: #ffffff1a;
+  border-color: var(--line);
+  padding-top: 70px;
+}
+.page-intro h1 {
+  font-size: clamp(44px, 4.5vw, 66px);
+}
+.small-section-title,
+.breadcrumb {
+  color: var(--peacock);
+}
+.small-section-title > span {
+  color: var(--spruce);
+}
+.category-hero {
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.category-copy h1 {
+  font-size: 54px;
+}
+.empty-collection {
+  background: var(--panel);
+}
+.contact-copy h1 {
+  font-size: clamp(45px, 4.3vw, 66px);
+}
+.contact-detail address,
+.contact-detail p,
+.contact-detail > span {
+  color: var(--muted);
+}
+.enquiry-form {
+  background: var(--panel);
+  border-color: #05322940;
+}
+.contact-status {
+  color: var(--peacock);
+  background: #05322912;
+}
+input,
+select {
+  background: #ffffff4d;
+  color: var(--peacock);
+  border-color: #05322959;
+  color-scheme: light;
+}
+input::placeholder {
+  color: #355e58b3;
+}
+.form-grid label > span,
+.form-error {
+  color: var(--peacock);
+}
+.form-grid label > small,
+.enquiry-form .form-footnote {
+  color: var(--muted);
+}
+.footer {
+  background: #05322912;
+  border-top: 1px solid var(--line);
+}
+.footer-top,
+.footer-bottom {
+  border-color: var(--line);
+}
+.footer-top > p,
+.footer .brand {
+  color: var(--peacock);
+}
+.footer-top em {
+  color: var(--spruce);
+}
+.footer-grid h3 {
+  color: var(--peacock);
+}
+.footer-grid a,
+.footer-grid p,
+.footer-grid address,
+.footer-bottom {
+  color: var(--muted);
+}
+.footer-grid a:hover,
+.footer-grid .delivery-note {
+  color: var(--peacock);
+}
+
+@media (min-width: 1600px) {
+  .hero-copy {
+    padding-inline: 8%;
+  }
+  .hero h1 {
+    font-size: 84px;
+    max-width: 650px;
+  }
+  .hero h1 > span {
+    max-width: 650px;
+  }
+  .hero-poetry {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1150px) and (min-width: 901px) {
+  .header {
+    padding-inline: 4%;
+  }
+  .nav {
+    grid-template-columns: minmax(0, 1fr) 195px minmax(0, 1fr);
+  }
+  .header > .brand {
+    width: 180px;
+  }
+  .nav-group {
+    gap: 17px;
+  }
+  .nav-group > a:not(.button) {
+    font-size: 9px;
+    letter-spacing: 0.6px;
+  }
+  .nav-cta {
+    font-size: 8px;
+    padding-inline: 11px;
+  }
+}
+@media (max-width: 900px) {
+  .header {
+    height: 82px;
+    padding-inline: 6%;
+  }
+  .header > .brand {
+    width: 180px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .menu-toggle {
+    margin-left: auto;
+  }
+  .header-shell.menu-is-open,
+  .home-header.menu-is-open {
+    background: var(--sage);
+    color: var(--peacock);
+  }
+  .nav {
+    display: flex;
+    top: 82px;
+    height: calc(100dvh - 82px);
+    gap: 0;
+    background: var(--sage);
+    color: var(--peacock);
+  }
+  .nav-group {
+    gap: 0;
+  }
+  .nav-group > a:not(.button) {
+    font-size: 35px;
+    letter-spacing: -1px;
+    border: 0;
+  }
+  .nav-group > a[aria-current="page"] {
+    color: var(--spruce);
+  }
+  .nav .nav-cta {
+    background: transparent;
+    color: var(--spruce);
+    font-size: 12px;
+    padding: 18px 0;
+    border: 0;
+  }
+  .story-backdrop .story-copy {
+    width: 58%;
+    padding: 65px 7% 65px 3%;
+  }
+  .story-backdrop {
+    min-height: 640px;
+  }
+  .mobile-menu-note {
+    color: var(--spruce);
+  }
+  .mobile-menu-note > span {
+    color: var(--muted);
+  }
+  .hero {
+    min-height: max(720px, 100svh);
+  }
+  .hero-copy {
+    padding: 155px 6% 115px;
+  }
+  .hero h1 {
+    font-size: 62px;
+    max-width: 520px;
+  }
+  .hero h1 > span {
+    max-width: 520px;
+  }
+  .hero-poetry {
+    font-size: 18px;
+  }
+  .category-copy h1 {
+    font-size: 44px;
+  }
+}
+@media (max-width: 600px) {
+  .announcement {
+    font-size: 6px;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+  }
+  .header {
+    height: 76px;
+  }
+  .header > .brand {
+    width: 155px;
+  }
+  .nav {
+    top: 76px;
+    height: calc(100dvh - 76px);
+  }
+  .nav-group > a:not(.button) {
+    font-size: 32px;
+  }
+  .hero {
+    min-height: max(730px, 100svh);
+  }
+  .hero-copy {
+    padding: 150px 6% 115px;
+  }
+  .hero h1 {
+    font-size: clamp(43px, 12vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -1.7px;
+  }
+  .hero h1 > span {
+    max-width: 340px;
+  }
+  .hero-poetry {
+    font-size: 16px;
+    max-width: 285px;
+  }
+  .hero-copy > p {
+    font-size: 11px;
+    max-width: 320px;
+  }
+  .hero-actions {
+    gap: 16px;
+  }
+  .page-intro {
+    padding-top: 45px;
+  }
+  .page-intro h1 {
+    font-size: 41px;
+  }
+  .category-copy h1 {
+    font-size: 43px;
+  }
+  .contact-copy h1 {
+    font-size: 46px;
+  }
+  .featured-grid .collection-image {
+    border-radius: 110px 110px 2px 2px;
+  }
+  .featured-grid .collection-number {
+    top: 15px;
+    font-size: 12px;
+  }
+  .homepage .featured {
+    padding-top: 50px;
+  }
+  .story-backdrop {
+    min-height: 740px;
+    margin-inline: 6%;
+    margin-bottom: 55px;
+  }
+  .story-backdrop .story-copy {
+    width: 100%;
+    max-width: none;
+    padding: 190px 7% 75px;
+  }
+  .story-backdrop .story-image > img {
+    object-position: 25% center;
+  }
+  .story-backdrop .story-image::after {
+    background: linear-gradient(0deg, #e4d8abf5 0%, #e4d8abe6 60%, #e4d8ab26);
+  }
+  .footer .brand {
+    width: 180px;
+  }
+}
+@media (max-width: 380px) {
+  .header > .brand {
+    width: 140px;
+  }
+  .menu-toggle > span:first-child {
+    display: none;
+  }
+}
+
+/* Step numbers in upright type, not italic. */
+.step-top > span:first-child {
+  font-style: normal;
+}
+
+/* Ordering steps stack one under another on phones. */
+@media (max-width: 600px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .steps article {
+    min-height: 0;
+    padding-bottom: 14px;
+  }
+  .step-top {
+    padding-top: 12px;
+    margin-bottom: 12px;
+  }
+  .step-top > span {
+    line-height: 1;
+  }
+  .steps h3 {
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+  .steps p {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* Phone menu: icon only (no "Menu"/"Close" word), black item numbers. */
+@media (max-width: 900px) {
+  .menu-toggle > span:first-child {
+    display: none;
+  }
+  .nav-group small {
+    color: #000;
+  }
+}
+
+/* FAQ intro: heading and sub-line each on a single line. */
+.faq-section h2 {
+  font-size: clamp(30px, 3vw, 46px);
+  white-space: nowrap;
+}
+@media (min-width: 1000px) {
+  .faq-section > div:first-child > p {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 600px) {
+  .faq-section h2 {
+    font-size: clamp(30px, 9.5vw, 42px);
+  }
+  .faq-section > div:first-child > p {
+    white-space: nowrap;
+  }
+}
+
+/* Scrolled desktop header: "Schedule a Video Call" becomes a filled green button. */
+@media (min-width: 901px) {
+  .header-shell.is-scrolled .button.nav-cta {
+    background: var(--peacock);
+    color: var(--sage);
+    padding: 12px 18px;
+  }
+  .header-shell.is-scrolled .button.nav-cta:hover {
+    background: var(--spruce);
+    color: #f7f4eb;
+  }
+}
+
+/* Slightly larger body text (headings unchanged). */
+main p:not(.hero-poetry),
+.faq-section > div:first-child > p,
+.contact-detail address,
+.contact-detail > span {
+  font-size: 14px;
+}
+.faq-list summary {
+  font-size: 14px;
+}
+.footer-grid a,
+.footer-grid p,
+.footer-grid address {
+  font-size: 13px;
+}
+.footer-bottom {
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  main p:not(.hero-poetry),
+  .faq-section > div:first-child > p,
+  .contact-detail address,
+  .contact-detail > span {
+    font-size: 13px;
+  }
+  .faq-list summary {
+    font-size: 13px;
+  }
+}
+
+/* Hero footer keeps only the campaign caption, on the right. */
+.hero-bottom {
+  justify-content: flex-end;
+}
