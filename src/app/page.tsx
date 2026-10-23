@@ -100,9 +100,6 @@ export default function Home() {
             fill
             sizes="100vw"
           />
-          <span className="story-image-caption">
-            A STUDY IN THREAD & TRADITION · ILLUSTRATIVE
-          </span>
         </div>
         <div className="story-copy">
           <div className="eyebrow">THE THREAD THAT CONNECTS US</div>
@@ -130,7 +127,6 @@ export default function Home() {
       <section className="ordering section">
         <div className="section-heading">
           <div>
-            <div className="eyebrow">A SIMPLE, PERSONAL PROCESS</div>
             <h2>
               Your next collection,
               <br />
