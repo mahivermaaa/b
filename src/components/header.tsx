@@ -3,11 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./brand-logo";
-import { useCart } from "./cart-provider";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const { count, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const toggle = useRef<HTMLButtonElement>(null);
@@ -108,16 +106,6 @@ export function Header() {
             ))}
           </div>
           <div className="nav-group nav-right">
-            <button
-              type="button"
-              className="cart-link"
-              onClick={() => {
-                setOpen(false);
-                openCart();
-              }}
-            >
-              Cart{count > 0 ? ` (${count})` : ""}
-            </button>
             <Link
               href="/contact#viewing"
               className="button nav-cta"

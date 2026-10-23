@@ -7,7 +7,7 @@ import { useCart } from "./cart-provider";
 const money = rupees;
 
 export function CartDrawer() {
-  const { items, count, total, isOpen, closeCart, setQty, remove } = useCart();
+  const { items, count, total, isOpen, openCart, closeCart, setQty, remove } = useCart();
   const closeButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -42,6 +42,19 @@ export function CartDrawer() {
 
   return (
     <>
+      <button
+        type="button"
+        className="cart-fab"
+        aria-label={`Open cart${count > 0 ? `, ${count} items` : ""}`}
+        onClick={openCart}
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 4h2.5l2.2 10.5a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L20 8H6.2" />
+          <circle cx="9.5" cy="19.5" r="1.4" />
+          <circle cx="17" cy="19.5" r="1.4" />
+        </svg>
+        {count > 0 && <span className="cart-fab-count">{count}</span>}
+      </button>
       <div
         className={`cart-overlay${isOpen ? " is-open" : ""}`}
         onClick={closeCart}
