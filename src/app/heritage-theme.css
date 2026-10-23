@@ -65,6 +65,11 @@ body::before {
 }
 .header-shell.menu-is-open {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 60;
 }
 .header {
   height: 92px;
@@ -1580,4 +1585,13 @@ button.add-to-cart:disabled:hover {
   .pdp-info {
     order: 3;
   }
+}
+
+/* Keep price + Add to cart buttons aligned across a row, whatever the title length. */
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+.product-card .product-link {
+  flex: 1;
 }

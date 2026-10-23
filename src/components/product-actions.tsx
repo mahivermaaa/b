@@ -61,11 +61,11 @@ export function ProductActions({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Buy it now
+          Checkout
         </a>
       ) : (
         <span className="pdp-buy is-disabled" aria-disabled="true">
-          Buy it now
+          Checkout
         </span>
       )}
     </div>
