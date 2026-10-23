@@ -160,7 +160,7 @@ export default function Home() {
             <article key={title}>
               <div className="step-top">
                 <span>0{i + 1}</span>
-                <span aria-hidden="true">→</span>
+                {i < 3 && <span aria-hidden="true">→</span>}
               </div>
               <h3>{title}</h3>
               <p>{body}</p>

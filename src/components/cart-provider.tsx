@@ -82,7 +82,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           )
         : [...current, { ...item, qty }],
     );
-    setIsOpen(true);
+    // let the cart icon pop in first, then slide the checkout panel open
+    window.setTimeout(() => setIsOpen(true), 450);
   }, []);
   const setQty = useCallback((id: string, qty: number) => {
     setItems((current) =>

@@ -1629,3 +1629,12 @@ button.add-to-cart:disabled:hover {
   font: 700 11px/20px var(--sans);
   text-align: center;
 }
+
+/* Pops in when the first item is added. */
+.cart-fab {
+  animation: cart-fab-pop 0.3s ease-out;
+}
+@keyframes cart-fab-pop {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

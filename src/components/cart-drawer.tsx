@@ -42,6 +42,7 @@ export function CartDrawer() {
 
   return (
     <>
+      {count > 0 && (
       <button
         type="button"
         className="cart-fab"
@@ -53,8 +54,9 @@ export function CartDrawer() {
           <circle cx="9.5" cy="19.5" r="1.4" />
           <circle cx="17" cy="19.5" r="1.4" />
         </svg>
-        {count > 0 && <span className="cart-fab-count">{count}</span>}
+        <span className="cart-fab-count">{count}</span>
       </button>
+      )}
       <div
         className={`cart-overlay${isOpen ? " is-open" : ""}`}
         onClick={closeCart}
