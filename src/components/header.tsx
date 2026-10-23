@@ -3,9 +3,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./brand-logo";
+import { useCart } from "./cart-provider";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { count, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const toggle = useRef<HTMLButtonElement>(null);
@@ -57,7 +59,6 @@ export function Header() {
     ["Collections", "/collections"],
     ["Why Us", "/why-us"],
     ["FAQs", "/faqs"],
-    ["Contact", "/contact"],
   ];
   return (
     <div
@@ -93,7 +94,7 @@ export function Header() {
           aria-label="Main navigation"
         >
           <div className="nav-group nav-left">
-            {links.slice(0, 3).map(([label, href], i) => (
+            {links.map(([label, href], i) => (
               <Link
                 key={href}
                 href={href}
@@ -107,18 +108,16 @@ export function Header() {
             ))}
           </div>
           <div className="nav-group nav-right">
-            {links.slice(3).map(([label, href], i) => (
-              <Link
-                key={href}
-                href={href}
-                aria-current={pathname === href ? "page" : undefined}
-                onClick={() => setOpen(false)}
-              >
-                <small>0{i + 4}</small>
-                {label}
-                <span className="mobile-nav-arrow">↗︎</span>
-              </Link>
-            ))}
+            <button
+              type="button"
+              className="cart-link"
+              onClick={() => {
+                setOpen(false);
+                openCart();
+              }}
+            >
+              Cart{count > 0 ? ` (${count})` : ""}
+            </button>
             <Link
               href="/contact#viewing"
               className="button nav-cta"

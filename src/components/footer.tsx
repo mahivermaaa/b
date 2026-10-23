@@ -34,11 +34,9 @@ export function Footer() {
         </div>
         <div>
           <h3>Policies</h3>
-          <p className="policy-note">
-            Shipping, exchange, privacy and terms pages will be available after
-            their wording is approved.
-          </p>
-          <Link href="/faqs">Ordering information ↗︎</Link>
+          <Link href="/terms">Terms &amp; Conditions</Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/refund">Refund Policy</Link>
         </div>
         <div>
           <h3>Get in Touch</h3>

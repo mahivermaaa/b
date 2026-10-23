@@ -5,6 +5,9 @@ export type Product = {
   title: string;
   images: CatalogueImage[];
   description?: string;
+  price?: number; // INR; when missing the card shows "Contact for Price"
+  fabric?: string;
+  color?: string;
   priceVisibility: "contact";
   available?: boolean;
 };

@@ -9,6 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/why-us",
     "/faqs",
     "/contact",
+    "/terms",
+    "/privacy",
+    "/refund",
     ...categories.map((c) => `/collections/${c.slug}`),
   ].map((path) => ({
     url: `${siteOrigin}${path}`,

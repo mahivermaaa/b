@@ -3,6 +3,8 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { siteOrigin } from "@/lib/config";
 import { Motion } from "@/components/motion";
+import { CartProvider } from "@/components/cart-provider";
+import { CartDrawer } from "@/components/cart-drawer";
 import "./globals.css";
 import "./heritage-theme.css";
 export const metadata: Metadata = {
@@ -28,13 +30,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <a className="skip-link" href="#main">
-          Skip to content
-        </a>
-        <Header />
-        {children}
-        <Footer />
-        <Motion />
+        <CartProvider>
+          <a className="skip-link" href="#main">
+            Skip to content
+          </a>
+          <Header />
+          {children}
+          <Footer />
+          <Motion />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
