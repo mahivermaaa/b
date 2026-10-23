@@ -12,7 +12,7 @@ export default function NotFound() {
         This page is not available. Discover our collection families instead.
       </p>
       <Link href="/collections" className="button">
-        Explore Collections ↗
+        Explore Collections ↗︎
       </Link>
     </main>
   );

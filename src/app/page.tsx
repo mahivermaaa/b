@@ -49,7 +49,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <Link href="/contact#viewing" className="button">
-              Schedule a Video Call <span>↗</span>
+              Schedule a Video Call <span>↗︎</span>
             </Link>
             <Link className="text-link" href="/collections">
               Explore Collections <span>→</span>
@@ -77,7 +77,7 @@ export default function Home() {
             </h2>
           </div>
           <Link className="text-link" href="/collections">
-            View All Collections <span>↗</span>
+            View All Collections <span>↗︎</span>
           </Link>
         </div>
         <div className="collection-grid featured-grid">
@@ -123,7 +123,7 @@ export default function Home() {
             brings the collection to you, one personal video call at a time.
           </p>
           <Link className="text-link" href="/why-us">
-            Discover Our Story <span>↗</span>
+            Discover Our Story <span>↗︎</span>
           </Link>
         </div>
       </section>
@@ -182,7 +182,7 @@ export default function Home() {
             Answers to the things you may be wondering.
           </p>
           <Link href="/faqs" className="text-link">
-            All FAQs <span>↗</span>
+            All FAQs <span>↗︎</span>
           </Link>
         </div>
         <FAQList />

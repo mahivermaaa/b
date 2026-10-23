@@ -132,7 +132,7 @@ export function EnquiryForm({
         </p>
       )}
       <button className="button" type="submit" disabled={!enabled}>
-        Continue to WhatsApp <span>↗</span>
+        Continue to WhatsApp <span>↗︎</span>
       </button>
       <p className="form-footnote">
         Opens a pre-filled WhatsApp message for you to review and send. Your

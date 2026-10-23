@@ -102,7 +102,7 @@ export function Header() {
               >
                 <small>0{i + 1}</small>
                 {label}
-                <span className="mobile-nav-arrow">↗</span>
+                <span className="mobile-nav-arrow">↗︎</span>
               </Link>
             ))}
           </div>
@@ -116,7 +116,7 @@ export function Header() {
               >
                 <small>0{i + 4}</small>
                 {label}
-                <span className="mobile-nav-arrow">↗</span>
+                <span className="mobile-nav-arrow">↗︎</span>
               </Link>
             ))}
             <Link
@@ -124,7 +124,7 @@ export function Header() {
               className="button nav-cta"
               onClick={() => setOpen(false)}
             >
-              Schedule a Video Call <span>↗</span>
+              Schedule a Video Call <span>↗︎</span>
             </Link>
           </div>
           <div className="mobile-menu-note">

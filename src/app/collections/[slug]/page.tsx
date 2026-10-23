@@ -65,7 +65,7 @@ export default async function CategoryPage({
             currently available designs.
           </p>
           <Link href={contact} className="button">
-            Request Video Call <span>↗</span>
+            Request Video Call <span>↗︎</span>
           </Link>
           <Link href={contact} className="text-link">
             General collection enquiry <span>→</span>
@@ -95,7 +95,7 @@ export default async function CategoryPage({
                 {product.description && <p>{product.description}</p>}
                 <p>Contact for Price</p>
                 <Link href={contact} className="text-link">
-                  Request Video Call ↗
+                  Request Video Call ↗︎
                 </Link>
               </article>
             ))}
@@ -112,7 +112,7 @@ export default async function CategoryPage({
               Our team can show you currently available designs on a video call.
             </p>
             <Link href={contact} className="text-link">
-              Arrange your collection viewing <span>↗</span>
+              Arrange your collection viewing <span>↗︎</span>
             </Link>
           </div>
         )}

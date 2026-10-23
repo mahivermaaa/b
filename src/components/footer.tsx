@@ -23,7 +23,7 @@ export function Footer() {
               {c.name}
             </Link>
           ))}
-          <Link href="/collections">View All Collections ↗</Link>
+          <Link href="/collections">View All Collections ↗︎</Link>
         </div>
         <div>
           <h3>Customer Support</h3>
@@ -38,7 +38,7 @@ export function Footer() {
             Shipping, exchange, privacy and terms pages will be available after
             their wording is approved.
           </p>
-          <Link href="/faqs">Ordering information ↗</Link>
+          <Link href="/faqs">Ordering information ↗︎</Link>
         </div>
         <div>
           <h3>Get in Touch</h3>

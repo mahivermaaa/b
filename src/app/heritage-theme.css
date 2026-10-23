@@ -789,3 +789,12 @@ main p:not(.hero-poetry),
 .hero-bottom {
   justify-content: flex-end;
 }
+
+/* Keep arrows as plain text glyphs; iPhones otherwise draw ↗ as a blue emoji. */
+.mobile-nav-arrow,
+.button span,
+.text-link span,
+.collection-link span,
+a[href] {
+  font-variant-emoji: text;
+}

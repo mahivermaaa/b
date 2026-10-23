@@ -15,7 +15,7 @@ export function FinalCTA() {
         WhatsApp video call.
       </p>
       <Link className="button light" href="/contact#viewing">
-        Schedule a Video Call <span>↗</span>
+        Schedule a Video Call <span>↗︎</span>
       </Link>
       <small>For boutiques, stores & resellers · Minimum order ₹20,000</small>
     </section>
