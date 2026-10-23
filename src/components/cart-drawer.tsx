@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { rupees, whatsappLink } from "@/lib/whatsapp";
 import { useCart } from "./cart-provider";
 
@@ -9,6 +9,25 @@ const money = rupees;
 export function CartDrawer() {
   const { items, count, total, isOpen, openCart, closeCart, setQty, remove } = useCart();
   const closeButton = useRef<HTMLButtonElement>(null);
+  const [name, setName] = useState("");
+  const [business, setBusiness] = useState("");
+  useEffect(() => {
+    try {
+      setName(localStorage.getItem("bunonbari-name") ?? "");
+      setBusiness(localStorage.getItem("bunonbari-business") ?? "");
+    } catch {
+      /* ignore */
+    }
+  }, []);
+  useEffect(() => {
+    try {
+      localStorage.setItem("bunonbari-name", name);
+      localStorage.setItem("bunonbari-business", business);
+    } catch {
+      /* ignore */
+    }
+  }, [name, business]);
+  const ready = name.trim().length > 0;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -33,6 +52,9 @@ export function CartDrawer() {
   );
   const message = [
     "Hello Bunonbari, I would like to place an order:",
+    "",
+    `Name: ${name.trim()}`,
+    ...(business.trim() ? [`Business: ${business.trim()}`] : []),
     "",
     ...lines,
     "",
@@ -141,7 +163,25 @@ export function CartDrawer() {
             <strong>{money(total)}</strong>
           </div>
           <small>GST &amp; shipping extra. Order is confirmed on WhatsApp.</small>
-          {items.length > 0 ? (
+          <div className="cart-customer">
+            <input
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              placeholder="Your name (required)"
+              autoComplete="name"
+              aria-label="Your name"
+            />
+            <input
+              type="text"
+              value={business}
+              onChange={(event) => setBusiness(event.target.value)}
+              placeholder="Boutique / store name"
+              autoComplete="organization"
+              aria-label="Boutique or store name"
+            />
+          </div>
+          {items.length > 0 && ready ? (
             <a
               className="cart-checkout"
               href={checkoutHref}

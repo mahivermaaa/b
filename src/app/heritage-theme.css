@@ -1638,3 +1638,24 @@ button.add-to-cart:disabled:hover {
   from { transform: scale(0.4); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
+/* Customer details above Checkout. */
+.cart-customer {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.cart-customer input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff59;
+  color: var(--peacock);
+  font: inherit;
+  font-size: 16px;
+}
+.cart-customer input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
