@@ -798,3 +798,8 @@ main p:not(.hero-poetry),
 a[href] {
   font-variant-emoji: text;
 }
+
+/* Rounded corners on the hero's "Schedule a Video Call" button. */
+.hero-actions > .button {
+  border-radius: 12px;
+}
