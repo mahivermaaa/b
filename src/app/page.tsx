@@ -33,7 +33,7 @@ export default function Home() {
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-copy">
           <div className="eyebrow">
-            <span className="eyebrow-line" /> PURE HANDLOOM COLLECTION FROM BENGAL
+            <span className="eyebrow-line" /> PURE HANDLOOM COLLECTIONS FROM BENGAL
           </div>
           <h1>
             <span>Handloom Sarees</span>

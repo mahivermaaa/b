@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import type { Product } from "@/types/catalogue";
 import { CatalogueMedia } from "./catalogue-media";
 import { useCart } from "./cart-provider";
@@ -23,10 +22,6 @@ export function ProductCard({
       ? `₹${product.price.toLocaleString("en-IN")}`
       : "Contact for Price";
   const soldOut = !placeholder && product.available === false;
-  const href =
-    !placeholder && product.id && product.categoryId
-      ? `/collections/${product.categoryId}/products/${product.id}`
-      : null;
   const top = (
     <>
       <div className="product-image">
@@ -42,13 +37,7 @@ export function ProductCard({
   );
   return (
     <article className="product-card">
-      {href ? (
-        <Link href={href} className="product-link">
-          {top}
-        </Link>
-      ) : (
-        top
-      )}
+      {top}
       <p className="product-price">{price}</p>
       <button
         type="button"

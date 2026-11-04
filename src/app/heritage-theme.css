@@ -1668,19 +1668,51 @@ html {
   scroll-margin-top: 0;
 }
 
-/* "Buy Now" pill on collection cards (replaces the arrow). */
-.collection-info > span.buy-now {
-  flex: none;
-  padding: 8px 16px;
+/* Buy Now + Add to Cart buttons on collection cards (both go to the contact form). */
+.collection-card-link {
+  display: block;
+  color: inherit;
+}
+.collection-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.collection-actions a {
+  flex: 1;
+  padding: 10px 8px;
   border-radius: 8px;
-  background: var(--peacock);
-  color: var(--sage);
+  border: 1px solid var(--peacock);
+  text-align: center;
   font-size: 10px;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   white-space: nowrap;
 }
-.collection-card:hover .buy-now {
+.collection-actions .buy-now {
+  background: var(--peacock);
+  color: var(--sage);
+}
+.collection-actions .add-to-cart-link {
+  background: transparent;
+  color: var(--peacock);
+}
+.collection-actions .buy-now:hover {
   background: var(--spruce);
+  border-color: var(--spruce);
   color: #f7f4eb;
+}
+.collection-actions .add-to-cart-link:hover {
+  background: var(--peacock);
+  color: var(--sage);
+}
+@media (max-width: 600px) {
+  .collection-actions {
+    gap: 6px;
+  }
+  .collection-actions a {
+    padding: 9px 4px;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
 }
