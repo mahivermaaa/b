@@ -6,7 +6,7 @@ export const isValidCustomerNumber = (number: string) =>
   /^[1-9]\d{9,14}$/.test(normalizeCustomerNumber(number));
 
 export type EnquiryDetails = {
-  businessType: string;
+  businessType?: string;
   businessName: string;
   phone: string;
   city: string;
@@ -21,12 +21,21 @@ export function buildEnquiryUrl(
 ): string | undefined {
   if (!isValidWhatsappNumber(number) || !isValidCustomerNumber(details.phone))
     return undefined;
-  if (
-    !details.businessType.trim() ||
-    !details.businessName.trim() ||
-    !details.city.trim()
-  )
-    return undefined;
-  const message = `Hello Bunonbari, I would like to schedule a video call to explore your saree collections.\n\nBusiness Type: ${details.businessType.trim()}\nBusiness Name: ${details.businessName.trim()}\nWhatsApp: ${normalizeCustomerNumber(details.phone)}\nCity: ${details.city.trim()}\nInterested Collection: ${details.collection?.trim() || "Please help me choose"}\nPreferred Time: ${details.time?.trim() || "Please coordinate with me"}`;
+  if (!details.businessName.trim() || !details.city.trim()) return undefined;
+  const lines = [
+    "Hello Bunonbari, I would like to schedule a video call to explore your saree collections.",
+    "",
+    ...(details.businessType?.trim()
+      ? [`Business Type: ${details.businessType.trim()}`]
+      : []),
+    `Business Name: ${details.businessName.trim()}`,
+    `WhatsApp: ${normalizeCustomerNumber(details.phone)}`,
+    `City: ${details.city.trim()}`,
+    ...(details.collection?.trim()
+      ? [`Interested Collection: ${details.collection.trim()}`]
+      : []),
+    `Preferred Time: ${details.time?.trim() || "Please coordinate with me"}`,
+  ];
+  const message = lines.join("\n");
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

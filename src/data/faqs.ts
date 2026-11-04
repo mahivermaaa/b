@@ -9,11 +9,11 @@ export const faqs = [
   ],
   [
     "How do I view the available collection?",
-    "Request a WhatsApp video call with our team. We will arrange a time to show you the designs currently available.",
+    "Book a WhatsApp video call with our team. We will arrange a time to show you the designs currently available.",
   ],
   [
     "Can I buy a single saree?",
-    "Bunonbari is a B2B showroom for boutiques, stores and resellers. Purchases must meet the ₹20,000 minimum order value.",
+    "Bunonbari is a B2B wholesale bulk supplier for boutiques, stores and resellers. We do not sell a single saree.",
   ],
   [
     "Do you offer cash on delivery?",
@@ -21,7 +21,7 @@ export const faqs = [
   ],
   [
     "When will my order be dispatched?",
-    "Orders are typically dispatched 4–5 days after payment confirmation. Our team will coordinate the details directly and share tracking after dispatch.",
+    "Orders are typically dispatched in 1 to 2 days once we receive the payment. Our team will ship the product the same day or the next day. We will share the tracking details with you.",
   ],
   [
     "How is shipping calculated?",
@@ -29,6 +29,6 @@ export const faqs = [
   ],
   [
     "What happens if my product arrives damaged?",
-    "Please report damage to our team within 12 hours of delivery for an exchange request. The stated business policy does not offer voluntary refunds. Final exchange policy wording is pending approval; this information does not limit applicable statutory rights.",
+    "Please report damage to our team within 6 hours of delivery for an exchange request. The stated business policy does not offer voluntary refunds. Final exchange policy wording is pending approval; this information does not limit applicable statutory rights.",
   ],
 ] as const;

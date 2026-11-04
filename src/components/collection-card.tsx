@@ -22,7 +22,7 @@ export function CollectionCard({ category }: { category: Category }) {
       </div>
       <div className="collection-info">
         <h3>{category.name}</h3>
-        <span aria-hidden="true">↗︎</span>
+        <span className="buy-now">Buy Now</span>
       </div>
       <span className="collection-link">View Collection</span>
     </Link>

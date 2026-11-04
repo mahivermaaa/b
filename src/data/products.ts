@@ -3,24 +3,20 @@ import type { Product } from "@/types/catalogue";
 // PLACEHOLDER DATA: the same eight sample saris, with made-up prices, fabrics and
 // colours, repeat in every collection. Replace with real products when ready.
 const slugs = [
-  "mulmul-cotton",
   "jamdani",
+  "mulmul-mul-cotton",
   "bengal-cotton",
-  "tissue",
-  "linen-tissue",
-  "linen-by-linen",
+  "linen-sarees",
   "mercerised-cotton",
   "matka-silk",
+  "linen-jamdani",
+  "tissue-linen",
   "modal-silk",
-  "tussar-silk",
-  "muslin-silk",
-  "murshidabadi-silk",
-  "cotton-silk",
-  "paithani",
-  "hand-embroidery",
-  "baluchari",
-  "ajrak",
-  "bujhodi",
+  "aajrak",
+  "bhujodhi",
+  "linen-paithani",
+  "hand-printed",
+  "kaadhi-cotton",
 ];
 const looks = [
   {

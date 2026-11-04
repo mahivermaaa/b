@@ -1,24 +1,20 @@
 import type { Category } from "@/types/catalogue";
 import { products } from "./products";
 const names = [
-  "Mulmul Cotton",
   "Jamdani",
+  "Mulmul / Mul Cotton",
   "Bengal Cotton",
-  "Tissue",
-  "Linen Tissue",
-  "Linen by Linen",
+  "Linen Sarees",
   "Mercerised Cotton",
   "Matka Silk",
+  "Linen Jamdani",
+  "Tissue Linen",
   "Modal Silk",
-  "Tussar Silk",
-  "Muslin Silk",
-  "Murshidabadi Silk",
-  "Cotton Silk",
-  "Paithani",
-  "Hand Embroidery",
-  "Baluchari",
-  "Ajrak",
-  "Bujhodi",
+  "Aajrak",
+  "Bhujodhi",
+  "Linen Paithani",
+  "Hand Printed",
+  "Kaadhi Cotton",
 ];
 // Add approved cover images and descriptions here, keyed by the category slug.
 // Example shape: "jamdani": { coverImage: { src: "/images/catalogue/approved.jpg", alt: "Approved description" } }
@@ -27,7 +23,10 @@ const categoryDetails: Record<
   Pick<Category, "coverImage" | "description">
 > = {};
 export const categories: Category[] = names.map((name, index) => {
-  const slug = name.toLowerCase().replaceAll(" ", "-");
+  const slug = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
   return {
     id: slug,
     slug,

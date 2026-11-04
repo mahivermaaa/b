@@ -27,9 +27,9 @@ export function Footer() {
         </div>
         <div>
           <h3>Customer Support</h3>
-          <Link href="/why-us">About Us</Link>
+          <Link href="/#story">About Us</Link>
           <Link href="/contact">Contact</Link>
-          <Link href="/faqs">FAQs</Link>
+          <Link href="/#faq">FAQs</Link>
           <Link href="/contact#viewing">Schedule a Video Call</Link>
         </div>
         <div>
@@ -40,6 +40,7 @@ export function Footer() {
         </div>
         <div>
           <h3>Get in Touch</h3>
+          <p className="delivery-note">Payments via Razorpay</p>
           <p>Bunonbari</p>
           <address>{address}</address>
           <p className="delivery-note">Pan-India Delivery</p>
@@ -49,7 +50,6 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} Bunonbari. All rights reserved.
         </span>
-        <span>A B2B digital showroom · Orders coordinated directly</span>
       </div>
     </footer>
   );

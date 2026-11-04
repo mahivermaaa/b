@@ -5,7 +5,7 @@ import { FinalCTA } from "@/components/sections";
 export const metadata: Metadata = {
   title: "Our Collections",
   description:
-    "Explore 18 saree collections, from Mulmul Cotton and Jamdani to silk and hand embroidery. View available designs on a personal video call.",
+    "Explore 14 saree collections, from Jamdani and Mulmul Cotton to silk and hand printed sarees. View available designs on a personal video call.",
 };
 export default function Collections() {
   return (
@@ -24,7 +24,7 @@ export default function Collections() {
           our team.
         </p>
         <span className="catalogue-count">
-          18 COLLECTIONS <span>·</span> ₹20,000 MINIMUM ORDER
+          14 COLLECTIONS <span>·</span> ₹20,000 MINIMUM ORDER
         </span>
       </section>
       <section className="section catalogue-section">
@@ -39,7 +39,7 @@ export default function Collections() {
         </div>
         <div className="small-section-title remaining-title">
           <h2>Explore further</h2>
-          <span>05 — 18</span>
+          <span>05 — 14</span>
         </div>
         <div className="collection-grid secondary-grid">
           {categories.slice(4).map((c) => (

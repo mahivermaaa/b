@@ -262,7 +262,7 @@ body::before {
   display: block;
   position: relative;
   isolation: isolate;
-  min-height: 700px;
+  min-height: 620px;
   margin-inline: 6%;
   margin-bottom: 90px;
   border: 1px solid var(--line);
@@ -562,7 +562,7 @@ input::placeholder {
     padding: 65px 7% 65px 3%;
   }
   .story-backdrop {
-    min-height: 640px;
+    min-height: 570px;
   }
   .mobile-menu-note {
     color: var(--spruce);
@@ -657,7 +657,7 @@ input::placeholder {
     padding-top: 50px;
   }
   .story-backdrop {
-    min-height: 740px;
+    min-height: 660px;
     margin-inline: 6%;
     margin-bottom: 55px;
   }
@@ -1658,4 +1658,29 @@ button.add-to-cart:disabled:hover {
 .cart-customer input::placeholder {
   color: var(--muted);
   opacity: 0.8;
+}
+
+/* Why Us / About Us link scrolls to the homepage story section. */
+html {
+  scroll-behavior: smooth;
+}
+#story {
+  scroll-margin-top: 0;
+}
+
+/* "Buy Now" pill on collection cards (replaces the arrow). */
+.collection-info > span.buy-now {
+  flex: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--peacock);
+  color: var(--sage);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.collection-card:hover .buy-now {
+  background: var(--spruce);
+  color: #f7f4eb;
 }

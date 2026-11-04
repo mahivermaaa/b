@@ -8,7 +8,6 @@ import {
 } from "../src/lib/enquiry.ts";
 
 const details = {
-  businessType: "Boutique Owner",
   businessName: "Threads & Co.",
   phone: "+91 98765 43210",
   city: "Pune",
@@ -43,7 +42,6 @@ test("invalid customer or blank required business details cannot create a redire
     { phone: "abc" },
     { businessName: "   " },
     { city: "" },
-    { businessType: "" },
   ])
     assert.equal(
       buildEnquiryUrl(recipient, { ...details, ...patch }),
@@ -55,7 +53,6 @@ test("message safely encodes punctuation, Unicode and newlines without changing 
     buildEnquiryUrl(recipient, {
       ...details,
       businessName: "Sarees & Silk #1 / শাড়ি",
-      collection: "Jamdani",
       time: "2–5 pm IST & weekends",
     }),
   );
@@ -65,13 +62,13 @@ test("message safely encodes punctuation, Unicode and newlines without changing 
   const message = url.searchParams.get("text");
   assert.ok(message.includes("Business Name: Sarees & Silk #1 / শাড়ি"));
   assert.ok(message.includes("\nWhatsApp: " + recipient));
-  assert.ok(message.includes("Interested Collection: Jamdani"));
   assert.ok(message.includes("Preferred Time: 2–5 pm IST & weekends"));
 });
 test("empty optional fields use clear enquiry defaults", () => {
   const message = new URL(
     buildEnquiryUrl(recipient, { ...details, collection: "  ", time: "  " }),
   ).searchParams.get("text");
-  assert.ok(message.includes("Interested Collection: Please help me choose"));
+  assert.ok(!message.includes("Interested Collection"));
+  assert.ok(!message.includes("Business Type"));
   assert.ok(message.includes("Preferred Time: Please coordinate with me"));
 });

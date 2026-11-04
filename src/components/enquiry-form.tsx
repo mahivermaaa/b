@@ -1,13 +1,10 @@
 "use client";
 import { useState, type FormEvent } from "react";
-import { categories } from "@/data/categories";
 import { whatsappNumber, isValidWhatsappNumber } from "@/lib/config";
 import { buildEnquiryUrl, isValidCustomerNumber } from "@/lib/enquiry";
-export function EnquiryForm({
-  selectedCollection = "",
-}: {
-  selectedCollection?: string;
-}) {
+// selectedCollection is still passed by the contact page but no longer used.
+export function EnquiryForm(props: { selectedCollection?: string }) {
+  void props;
   const enabled = isValidWhatsappNumber(whatsappNumber);
   const [error, setError] = useState("");
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -23,11 +20,9 @@ export function EnquiryForm({
       return;
     }
     const url = buildEnquiryUrl(whatsappNumber, {
-      businessType: String(data.get("businessType") ?? ""),
       businessName: String(data.get("businessName") ?? ""),
       phone,
       city: String(data.get("city") ?? ""),
-      collection: String(data.get("collection") ?? ""),
       time: String(data.get("time") ?? ""),
     });
     if (!url) {
@@ -38,43 +33,21 @@ export function EnquiryForm({
   }
   return (
     <form onSubmit={submit} className="enquiry-form">
-      <div className="eyebrow">A PERSONAL VIEWING, FROM WHEREVER YOU ARE</div>
       <h2>
         Schedule Your
         <br />
         <em>Collection Viewing</em>
       </h2>
-      <p>Tell us a little about your business.</p>
+      <p>Tell us about your business.</p>
       {!enabled && (
         <div className="contact-status" role="status">
           <strong>Video-call requests will open soon.</strong>
-          <span>
-            Our business WhatsApp contact is being finalised. You can explore
-            the collections in the meantime; this form cannot send or save your
-            details yet.
-          </span>
+          <span>10 Am to 8 Pm</span>
         </div>
       )}
       <div className="form-grid">
         <label className="full">
-          Business category <span>*</span>
-          <select name="businessType" required defaultValue="">
-            <option value="" disabled>
-              Select your business type
-            </option>
-            {[
-              "Saree Store Owner",
-              "Boutique Owner",
-              "Exhibition Reseller",
-              "Apartment Reseller",
-              "Reseller",
-            ].map((type) => (
-              <option key={type}>{type}</option>
-            ))}
-          </select>
-        </label>
-        <label className="full">
-          Store / Boutique / Business Name <span>*</span>
+          Store Name / Boutique / Business Name / Person Name <span>*</span>
           <input
             name="businessName"
             required
@@ -85,7 +58,7 @@ export function EnquiryForm({
           />
         </label>
         <label>
-          WhatsApp Number <span>*</span>
+          WhatsApp Number / Calling Number <span>*</span>
           <input
             name="phone"
             type="tel"
@@ -105,17 +78,6 @@ export function EnquiryForm({
             autoComplete="address-level2"
             placeholder="Your city"
           />
-        </label>
-        <label className="full">
-          Interested Collection <small>Optional</small>
-          <select name="collection" defaultValue={selectedCollection}>
-            <option value="">I’d like to explore</option>
-            {categories.map((c) => (
-              <option key={c.id} value={c.name}>
-                {c.name}
-              </option>
-            ))}
-          </select>
         </label>
         <label className="full">
           Preferred Video-Call Time <small>Optional</small>

@@ -33,19 +33,20 @@ export default function Home() {
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-copy">
           <div className="eyebrow">
-            <span className="eyebrow-line" /> BENGAL HANDLOOM COLLECTIONS
+            <span className="eyebrow-line" /> PURE HANDLOOM COLLECTION FROM BENGAL
           </div>
           <h1>
-            <span>Pure Handloom</span>
-            <em>Sarees.</em>
+            <span>Handloom Sarees</span>
+            <em>Manufacturers.</em>
           </h1>
           <div className="hero-poetry">
-            A story in every weave. A connection in every collection.
+            A story in every weave. A connection in every collections.
           </div>
           <p>
-            Explore traditional Bengal handloom saree collections for boutiques,
-            stores and resellers. Connect with our team over a WhatsApp video
-            call to view current stock and choose your collection.
+            Explore our traditional Bengal handloom saree collections for stores,
+            boutiques, resellers and exhibition stall resellers. Connect with us
+            over a WhatsApp video call to see the saree collections, orders and
+            online booking.
           </p>
           <div className="hero-actions">
             <Link href="/contact#viewing" className="button">
@@ -87,12 +88,8 @@ export default function Home() {
               <CollectionCard category={c} key={c.id} />
             ))}
         </div>
-        <p className="image-disclaimer">
-          AI-created mood studies, not Bunonbari product photographs. View
-          actual designs and current stock with our team.
-        </p>
       </section>
-      <section className="story-section story-backdrop">
+      <section className="story-section story-backdrop" id="story">
         <div className="story-image">
           <Image
             src="/images/editorial/thread-story.webp"
@@ -107,21 +104,14 @@ export default function Home() {
             A story in
             <br />
             every thread.
-            <br />
-            <em>A person behind it.</em>
           </h2>
           <p>
-            We work from Pune, in direct connection with weavers in West Bengal.
-            Bringing handloom collections to the boutiques, stores and resellers
-            who give them their next chapter.
+            At Bunonbari, we don&apos;t just sell sarees, we carry forward
+            Handloom Stories from Bengal. Based in Pune with roots in Bengal, we
+            are wholesale manufacturers
+            supplying to 500+ saree stores, 200+ boutiques, 100+ Instagram
+            resellers and exhibition stall resellers across India.
           </p>
-          <p>
-            See the weave. Find your colours. Ask your questions. Our team
-            brings the collection to you, one personal video call at a time.
-          </p>
-          <Link className="text-link" href="/why-us">
-            Discover Our Story <span>↗︎</span>
-          </Link>
         </div>
       </section>
       <section className="ordering section">
@@ -168,7 +158,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="section faq-section">
+      <section className="section faq-section" id="faq">
         <div>
           <div className="eyebrow">A LITTLE CLARITY</div>
           <h2>
@@ -177,9 +167,6 @@ export default function Home() {
           <p>
             Answers to the things you may be wondering.
           </p>
-          <Link href="/faqs" className="text-link">
-            All FAQs <span>↗︎</span>
-          </Link>
         </div>
         <FAQList />
       </section>

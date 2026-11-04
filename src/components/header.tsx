@@ -55,8 +55,8 @@ export function Header() {
   const links = [
     ["Home", "/"],
     ["Collections", "/collections"],
-    ["Why Us", "/why-us"],
-    ["FAQs", "/faqs"],
+    ["Why Us", "/#story"],
+    ["FAQs", "/#faq"],
   ];
   return (
     <div
