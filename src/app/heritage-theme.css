@@ -1716,3 +1716,71 @@ html {
     letter-spacing: 0.8px;
   }
 }
+
+/* Single Add to Cart button on collection cards. */
+.collection-actions .add-to-cart-link {
+  background: var(--peacock);
+  color: var(--sage);
+}
+.collection-actions .add-to-cart-link:hover {
+  background: var(--spruce);
+  border-color: var(--spruce);
+  color: #f7f4eb;
+}
+
+/* Collection-card Add to Cart is a real button that opens the cart panel. */
+button.add-to-cart-link {
+  flex: 1;
+  font-family: inherit;
+  cursor: pointer;
+}
+.collection-actions button.add-to-cart-link {
+  padding: 10px 8px;
+  border: 1px solid var(--peacock);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .collection-actions button.add-to-cart-link {
+    padding: 9px 4px;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* Add to Cart pill to the right of the collection name. */
+.collection-info > button.card-add {
+  flex: none;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--peacock);
+  color: var(--sage);
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.collection-info > button.card-add:hover {
+  background: var(--spruce);
+  color: #f7f4eb;
+}
+@media (max-width: 600px) {
+  .collection-info > button.card-add {
+    padding: 7px 9px;
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+}
+
+/* Keep every Add to Cart button level with the first line of the name. */
+.collection-info {
+  align-items: flex-start;
+}

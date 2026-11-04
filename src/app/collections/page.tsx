@@ -29,7 +29,7 @@ export default function Collections() {
       </section>
       <section className="section catalogue-section">
         <div className="small-section-title">
-          <h2>The featured edit</h2>
+          <h2>Our Specialities:</h2>
           <span>01 — 04</span>
         </div>
         <div className="collection-grid featured-grid">
@@ -46,10 +46,6 @@ export default function Collections() {
             <CollectionCard key={c.id} category={c} />
           ))}
         </div>
-        <p className="image-disclaimer">
-          Illustrative textile studies, not product photographs. Actual stock is
-          shown during your viewing.
-        </p>
       </section>
       <FinalCTA />
     </main>

@@ -57,8 +57,7 @@ export function CartDrawer() {
     ...(business.trim() ? [`Business: ${business.trim()}`] : []),
     "",
     ...lines,
-    "",
-    `Total: ${money(total)} (GST & shipping extra)`,
+    ...(total > 0 ? ["", `Total: ${money(total)} (GST & shipping extra)`] : []),
   ].join("\n");
   const checkoutHref = whatsappLink(message);
 
@@ -158,10 +157,12 @@ export function CartDrawer() {
           )}
         </div>
         <div className="cart-foot">
-          <div className="cart-total">
-            <span>Subtotal</span>
-            <strong>{money(total)}</strong>
-          </div>
+          {total > 0 && (
+            <div className="cart-total">
+              <span>Subtotal</span>
+              <strong>{money(total)}</strong>
+            </div>
+          )}
           <small>GST &amp; shipping extra. Order is confirmed on WhatsApp.</small>
           <div className="cart-customer">
             <input
@@ -188,11 +189,11 @@ export function CartDrawer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Checkout
+              Buy Now
             </a>
           ) : (
             <span className="cart-checkout is-disabled" aria-disabled="true">
-              Checkout
+              Buy Now
             </span>
           )}
         </div>

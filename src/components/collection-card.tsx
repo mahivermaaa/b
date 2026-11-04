@@ -1,8 +1,10 @@
-import Link from "next/link";
+"use client";
 import type { Category } from "@/types/catalogue";
 import { CatalogueMedia } from "./catalogue-media";
+import { useCart } from "./cart-provider";
 import { editorialStudies } from "@/data/editorial";
 export function CollectionCard({ category }: { category: Category }) {
+  const { add } = useCart();
   return (
     <div className="collection-card">
       <div className="collection-card-link">
@@ -25,15 +27,20 @@ export function CollectionCard({ category }: { category: Category }) {
         </div>
         <div className="collection-info">
           <h3>{category.name}</h3>
+          <button
+            type="button"
+            className="card-add"
+            onClick={() =>
+              add({
+                id: category.slug,
+                title: category.name,
+                image: category.coverImage?.src,
+              })
+            }
+          >
+            Add to Cart
+          </button>
         </div>
-      </div>
-      <div className="collection-actions">
-        <Link href="/contact#viewing" className="buy-now">
-          Buy Now
-        </Link>
-        <Link href="/contact#viewing" className="add-to-cart-link">
-          Add to Cart
-        </Link>
       </div>
     </div>
   );
