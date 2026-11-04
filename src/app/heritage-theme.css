@@ -1804,3 +1804,32 @@ button.add-to-cart-link {
   from { transform: translateY(8px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* Phone: name on top, Add to Cart full width underneath so every button lines up. */
+@media (max-width: 600px) {
+  .collection-info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .collection-info > button.card-add {
+    width: 100%;
+    padding: 9px 8px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  .collection-card {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  .collection-card-link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .collection-info {
+    flex: 1;
+    justify-content: space-between;
+  }
+}
