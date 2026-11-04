@@ -1784,3 +1784,23 @@ button.add-to-cart-link {
 .collection-info {
   align-items: flex-start;
 }
+
+/* "Added to cart" pop-up. */
+.cart-toast {
+  position: fixed;
+  right: 18px;
+  bottom: 84px;
+  z-index: 85;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--peacock);
+  color: var(--sage);
+  font-size: 12px;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 18px #05322940;
+  animation: cart-toast-in 0.2s ease-out;
+}
+@keyframes cart-toast-in {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

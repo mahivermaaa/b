@@ -7,7 +7,7 @@ import { useCart } from "./cart-provider";
 const money = rupees;
 
 export function CartDrawer() {
-  const { items, count, total, isOpen, openCart, closeCart, setQty, remove } = useCart();
+  const { items, count, total, isOpen, notice, openCart, closeCart, setQty, remove } = useCart();
   const closeButton = useRef<HTMLButtonElement>(null);
   const [name, setName] = useState("");
   const [business, setBusiness] = useState("");
@@ -63,6 +63,11 @@ export function CartDrawer() {
 
   return (
     <>
+      {notice > 0 && (
+        <div className="cart-toast" role="status">
+          Added to cart
+        </div>
+      )}
       {count > 0 && (
       <button
         type="button"

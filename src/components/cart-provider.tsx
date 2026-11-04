@@ -5,6 +5,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 
@@ -21,6 +22,7 @@ type CartContextValue = {
   count: number;
   total: number;
   isOpen: boolean;
+  notice: number;
   openCart: () => void;
   closeCart: () => void;
   add: (item: Omit<CartItem, "qty">, qty?: number) => void;
@@ -42,6 +44,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [notice, setNotice] = useState(0);
+  const noticeTimer = useRef<number | undefined>(undefined);
 
   // Load the saved cart after the first render so server and client HTML match.
   useEffect(() => {
@@ -82,8 +86,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           )
         : [...current, { ...item, qty }],
     );
-    // let the cart icon pop in first, then slide the checkout panel open
-    window.setTimeout(() => setIsOpen(true), 450);
+    // small "Added to cart" pop-up that disappears quickly; the panel opens only from the cart icon
+    setNotice((n) => n + 1);
+    window.clearTimeout(noticeTimer.current);
+    noticeTimer.current = window.setTimeout(() => setNotice(0), 1400);
   }, []);
   const setQty = useCallback((id: string, qty: number) => {
     setItems((current) =>
@@ -104,6 +110,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       count: items.reduce((sum, item) => sum + item.qty, 0),
       total: items.reduce((sum, item) => sum + (item.price ?? 0) * item.qty, 0),
       isOpen,
+      notice,
       openCart: () => setIsOpen(true),
       closeCart: () => setIsOpen(false),
       add,
@@ -111,7 +118,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       remove,
       clear,
     }),
-    [items, isOpen, add, setQty, remove, clear],
+    [items, isOpen, notice, add, setQty, remove, clear],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
